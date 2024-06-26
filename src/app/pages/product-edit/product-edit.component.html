@@ -1,0 +1,50 @@
+<div class="container">
+    <h2 class="text-center">Sửa món ăn</h2>
+    <a [routerLink]="['/product/lits']">Trở lại</a>
+    <form [formGroup]="editProductForm" (ngSubmit)="handleSubmit()">
+      <div class="form-group">
+        <label for="title">Tên món</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder="Title"
+          formControlName="title"
+        />
+        @if(editProductForm.controls['title'].errors?.['required'] &&
+        editProductForm.controls['title'].touched ) {
+        <small class="text-danger text-small">Bắt buộc</small>
+        } @if(editProductForm.controls['title'].errors?.['minlength'] &&
+        editProductForm.controls['title'].touched ) {
+        <small class="text-danger text-small">Tối thiểu 6 kí tự</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="image">Hình ảnh</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Image"
+          placeholder="Image"
+          formControlName="image"
+        />
+      </div>
+      <div class="form-group">
+        <label for="category">Loại</label>
+        <select class="form-control" id="category" formControlName="category">
+          <option value="">Select Category</option>
+          <option value="1">Đồ ăn nhanh</option>
+          <option value="2">Món chính</option>
+          <option value="3">Đồ ăn chay</option>
+          <option value="4">Đồ uống</option>
+          <option value="5">Đồ ăn vặt</option>
+          <option value="6">Combo</option>
+        </select>
+        @if(editProductForm.controls['category'].errors?.['required'] &&
+        editProductForm.controls['category'].touched ) {
+        <small class="text-danger text-small">Bắt buộc</small>
+        }
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="editProductForm.invalid">Cập nhật</button>
+    </form>
+  </div>

@@ -1,4 +1,40 @@
 {
-  "products": [],
-  "users": []
+  "products": [
+    {
+      "title": "noodle",
+      "image": "https://tse3.mm.bing.net/th?id=OIP.omxdypEw4d8ylRWr0LVb2wHaHa&pid=Api&P=0&h=220",
+      "price": "15000",
+      "isShow": true,
+      "id": 2
+    },
+    {
+      "title": "Mi an lien",
+      "image": "",
+      "category": "4",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gamil.com",
+      "password": "$2a$10$eZmkpueq7JpMj7ikfndhYeEIoG9P49fji14eRtuT0G24kRDu0FGp6",
+      "id": 1
+    },
+    {
+      "email": "admin2@gmail.com",
+      "password": "$2a$10$WljpfOPEDmEzEbBREHojn.oUZMgLpQNaepX2MpMq0dnNFuoVNTvUi",
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": "d41871c6-44f4-4d95-9b05-f1b519da2b5a",
+      "customerName": "1",
+      "orderDate": "2024-06-28",
+      "productName": "noodle",
+      "productPrice": "15000",
+      "quantity": 1,
+      "total": 15000
+    }
+  ]
 }

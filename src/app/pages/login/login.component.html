@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter email"
+        formControlName="email"
+      />
+      @if(loginForm.controls['email'].errors?.['required'] &&
+      loginForm.controls['email'].touched ) {
+        <small class="text-danger text-small">Email không đúng</small>
+        }
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Password"
+        formControlName="password"
+      />
+      @if(loginForm.controls['password'].errors?.['required'] &&
+      loginForm.controls['password'].touched ) {
+        <small class="text-danger text-small">Bạn chưa nhập mật khẩu hoặc mật khẩu không đúng</small>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+  </form>
+  <a [routerLink]="['/register']" >Đăng kí tại đây</a>

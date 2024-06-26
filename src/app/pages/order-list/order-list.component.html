@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên bàn</th>
+        <th scope="col">Tên món</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Số lượng</th>
+        <th scope="col">Tổng Tiền</th>
+        <th scope="col">Ngày Đặt Hàng</th>
+        <th scope="col">Thao Tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <th scope="row">{{ order.id }}</th>
+        <td>{{ order.customerName }}</td>
+        <td>{{ order.productName }}</td>
+        <td>{{ order.productPrice }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.total }}</td>
+        <td>{{ order.orderDate }}</td>
+        <td>
+          <a (click)="navigateToEdit(order.id)" class="btn btn-primary">Sửa</a>
+          <button (click)="handleDelete(order.id)" class="btn btn-danger">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

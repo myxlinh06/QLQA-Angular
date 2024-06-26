@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <button class="btn btn-primary" [routerLink]="['/product/add']">Thêm món</button>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tên món</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(product of products; track product.id){
+        <tr>
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.title}}</td>
+            <td><img [src]="product.image" alt=""></td>
+            <td>{{product.price}}</td>
+            <a [routerLink]="['/product/edit',product.id]" class="btn btn-primary">Sửa</a>
+            <button (click)="handleDelete(product.id)" class="btn btn-danger">Delete</button>
+        </tr>
+        }
+    </tbody>
+</table>

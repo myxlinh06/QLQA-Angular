@@ -1,0 +1,33 @@
+<!-- order-edit.component.html -->
+<h2>Sửa Hóa Đơn</h2>
+
+<div class="edit-form">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="customerName">Tên bàn</label>
+      <input id="customerName" formControlName="customerName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="orderDate">Ngày Đặt</label>
+      <input id="orderDate" formControlName="orderDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="productName">Tên món</label>
+      <input id="productName" formControlName="productName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="productPrice">Đơn Giá</label>
+      <input id="productPrice" formControlName="productPrice" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="quantity">Số Lượng</label>
+      <input id="quantity" formControlName="quantity" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="total">Tổng Tiền</label>
+      <input id="total" formControlName="total" type="number" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">Cập nhật hóa đơn</button>
+  </form>
+</div>

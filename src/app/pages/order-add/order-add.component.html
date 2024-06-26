@@ -1,0 +1,39 @@
+<!-- order-add.component.html -->
+<h2>Thêm Đơn</h2>
+
+<!-- Phần chọn sản phẩm -->
+<div class="product-selection">
+  <h3>Chọn Sản Phẩm</h3>
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.title }} - {{ product.price}} <img src="{{product.image}}" alt="" >
+      <button class="btn btn-primary" (click)="addToOrder(product)">Thêm vào Hóa đơn</button>
+    </li>
+  </ul>
+</div>
+
+<!-- Phần hóa đơn -->
+<div class="order-form">
+  <h3>Hóa Đơn</h3>
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="customerName">Tên bàn</label>
+      <input id="customerName" formControlName="customerName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="orderDate">Ngày Đặt</label>
+      <input id="orderDate" formControlName="orderDate" type="date" class="form-control" />
+    </div>
+
+    <!-- Danh sách các sản phẩm trong hóa đơn -->
+    <div class="form-group" *ngFor="let item of orderItems; let i = index">
+      <label>Sản Phẩm {{ i + 1 }}</label>
+      <div>
+        {{ item.productName }} - {{ item.productPrice}} - Số Lượng: {{ item.quantity }}
+        <button type="button" class="btn btn-danger" (click)="removeFromOrder(i)">Xóa</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid || orderItems.length === 0">Xác Nhận Đơn Hàng</button>
+  </form>
+</div>
